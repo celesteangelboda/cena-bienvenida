@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Cena de bienvenida · Angel & Celeste</title>
+<title>Cena de bienvenida · Celeste & Angel</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
@@ -93,7 +93,7 @@ body{margin:0;background:var(--bg);color:var(--ink);min-height:100%;
 <body>
 <main class="wrap">
   <div class="top">
-    <span class="names">Angel &amp; Celeste</span>
+    <span class="names">Celeste &amp; Angel</span>
     <div class="lang" role="group" aria-label="Idioma / Language">
       <button type="button" data-lang="es" aria-pressed="true">ES</button>
       <button type="button" data-lang="en" aria-pressed="false">EN</button>
@@ -158,7 +158,7 @@ const TEXT = {
     intro:"¡Hola familia! Queremos invitarlos a nuestra cena de bienvenida para pasar una tarde juntos, disfrutar una buena cena, brindar y convivir antes de todo lo que viene el fin de semana.",
     menu:"🍽️ La cena será con menú fijo, ya preparado para todos.",
     whenLabel:"Cuándo", time:"4:00 a 8:00 PM",
-    timeNote:"El horario exacto está por confirmar. Aquí verán cualquier cambio.",
+    timeNote:"La hora exacta aún está por confirmar, pero la cena será dentro de este horario. Cualquier cambio lo verán aquí.",
     addCal:"Agregar al calendario",
     whereLabel:"Dónde", openMap:"Abrir en Maps",
     dressLabel:"Código de vestimenta", dress:"Casual elegante",
@@ -174,7 +174,7 @@ const TEXT = {
     intro:"Hi familia! We'd love to have you at our welcome dinner for an evening together: good food, a toast, and time to catch up before everything the weekend has in store.",
     menu:"🍽️ Dinner will be a set menu, already planned for everyone.",
     whenLabel:"When", time:"4:00 to 8:00 PM",
-    timeNote:"Exact time still being finalized. Any update will show up right here.",
+    timeNote:"Exact time is still being finalized, but dinner will take place within this time window. Any update will show up right here.",
     addCal:"Add to calendar",
     whereLabel:"Where", openMap:"Open in Maps",
     dressLabel:"Dress code", dress:"Cocktail casual",
@@ -196,7 +196,7 @@ function render(lang){
   document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed", b.dataset.lang===lang));
   document.getElementById("calLink").href =
     "https://calendar.google.com/calendar/render?action=TEMPLATE" +
-    "&text=" + encodeURIComponent(lang==="es" ? "Cena de bienvenida · Angel & Celeste" : "Welcome dinner · Angel & Celeste") +
+    "&text=" + encodeURIComponent(lang==="es" ? "Cena de bienvenida · Celeste & Angel" : "Welcome dinner · Celeste & Angel") +
     "&dates=" + EVENT.calStart + "/" + EVENT.calEnd + "&ctz=America/Mexico_City" +
     "&location=" + encodeURIComponent(EVENT.place);
   const now = new Date(), start = new Date(EVENT.start), end = new Date(EVENT.end);
