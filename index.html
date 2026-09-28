@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cena de bienvenida · Angel & Celeste</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F3E6E4;        /* dusty rose */
+  --ink:#3A1119;       /* deep wine */
+  --soft:#7A4A52;
+  --arch:#6E1B2E;      /* burgundy */
+  --archInk:#FBEFEF;
+  --gold:#D19A4C;      /* autumn amber */
+  --line:#E0C6C6;
+  --btn:#8A2440; --btnInk:#FBEFEF;  /* berry */
+  --card:#F9EFED;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1F0D12; --ink:#F6E6E8; --soft:#C9A3A9; --arch:#5E1627; --archInk:#FBEFEF;
+    --gold:#E0AE62; --line:#43222A; --btn:#C0476A; --btnInk:#FFF6F7; --card:#2A141A;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1F0D12; --ink:#F6E6E8; --soft:#C9A3A9; --arch:#5E1627; --archInk:#FBEFEF;
+  --gold:#E0AE62; --line:#43222A; --btn:#C0476A; --btnInk:#FFF6F7; --card:#2A141A;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Figtree",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:560px;margin:0 auto;padding:20px 22px 48px}
+
+/* language switch */
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}
+.names{font-family:"Gloock",Georgia,serif;font-size:18px;color:var(--soft)}
+.lang{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--card)}
+.lang button{border:0;background:transparent;color:var(--soft);font:600 14px/1 "Figtree",sans-serif;
+  padding:8px 14px;border-radius:999px;cursor:pointer;min-width:44px}
+.lang button[aria-pressed="true"]{background:var(--btn);color:var(--btnInk)}
+.lang button:focus-visible,.btn:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+/* the arch: the one memorable thing */
+.arch{position:relative;background:var(--arch);color:var(--archInk);
+  border-radius:280px 280px 18px 18px;padding:74px 28px 34px;text-align:center;overflow:hidden}
+.arch::before{content:"";position:absolute;inset:12px 12px auto 12px;height:calc(100% - 24px);
+  border:1px solid rgba(209,154,76,.6);border-radius:268px 268px 10px 10px;pointer-events:none}
+.arch .kicker{font-size:15px;opacity:.85;margin:0 0 6px}
+.arch h1{font-family:"Gloock",Georgia,serif;font-weight:400;font-size:clamp(40px,11vw,58px);
+  line-height:1.02;margin:0 0 22px;letter-spacing:-.01em}
+.date{display:flex;justify-content:center;align-items:baseline;gap:14px}
+.date .day{font-family:"Gloock",Georgia,serif;font-size:84px;line-height:.9;color:var(--gold)}
+.date .rest{text-align:left;font-size:17px;line-height:1.3}
+.countdown{margin:20px 0 0;font-size:14px;opacity:.8}
+.glass{font-size:26px;display:block;margin-bottom:8px}
+
+.intro{font-size:18px;margin:28px 2px 26px;color:var(--ink)}
+
+/* details */
+.detail{border-top:1px solid var(--line);padding:20px 2px}
+.detail:last-of-type{border-bottom:1px solid var(--line)}
+.detail h2{font:600 14px/1.2 "Figtree",sans-serif;color:var(--soft);margin:0 0 6px}
+.detail .big{font-family:"Gloock",Georgia,serif;font-size:26px;line-height:1.15;margin:0}
+.detail p{margin:6px 0 0;color:var(--soft)}
+.note{display:inline-block;margin-top:10px;font-size:14px;color:var(--ink);
+  background:var(--card);border:1px dashed var(--gold);border-radius:8px;padding:6px 10px}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;
+  font:600 15px/1 "Figtree",sans-serif;padding:12px 16px;border-radius:10px;min-height:44px;
+  background:var(--btn);color:var(--btnInk);border:1px solid var(--btn)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+
+.closing{font-family:"Gloock",Georgia,serif;font-size:24px;line-height:1.25;text-align:center;margin:36px 10px 8px}
+.foot{text-align:center;color:var(--soft);font-size:13px;margin-top:22px}
+
+.arch h1,.date{animation:rise .9s ease-out both}
+.date{animation-delay:.15s}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.arch h1,.date{animation:none}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="top">
+    <span class="names">Angel &amp; Celeste</span>
+    <div class="lang" role="group" aria-label="Idioma / Language">
+      <button type="button" data-lang="es" aria-pressed="true">ES</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+
+  <section class="arch">
+    <span class="glass" aria-hidden="true">🥂</span>
+    <p class="kicker" data-t="kicker"></p>
+    <h1 data-t="title"></h1>
+    <div class="date">
+      <span class="day">6</span>
+      <span class="rest"><span data-t="weekday"></span><br><span data-t="month"></span></span>
+    </div>
+    <p class="countdown" id="countdown"></p>
+  </section>
+
+  <p class="intro" data-t="intro"></p>
+
+  <section class="detail">
+    <h2 data-t="whenLabel"></h2>
+    <p class="big" data-t="time"></p>
+    <span class="note" data-t="timeNote"></span>
+    <div class="actions">
+      <a class="btn ghost" id="calLink" target="_blank" rel="noopener" data-t="addCal"></a>
+    </div>
+  </section>
+
+  <section class="detail">
+    <h2 data-t="whereLabel"></h2>
+    <p class="big">Casa Maro</p>
+    <p>C. Justo Sierra 2575, Arcos Vallarta<br>44130 Guadalajara, Jal., México</p>
+    <div class="actions">
+      <a class="btn" id="mapLink" target="_blank" rel="noopener" data-t="openMap"></a>
+    </div>
+  </section>
+
+  <section class="detail">
+    <h2 data-t="dressLabel"></h2>
+    <p class="big" data-t="dress"></p>
+    <p data-t="dressNote"></p>
+  </section>
+
+  <p class="closing" data-t="closing"></p>
+  <p class="foot" data-t="foot"></p>
+</main>
+
+<script>
+/* ============ EDIT HERE ============
+   Change any text below, then ask Claude to republish to the same link. */
+const EVENT = {
+  start: "2026-11-06T16:00:00-06:00",   // Guadalajara time
+  end:   "2026-11-06T20:00:00-06:00",
+  calStart: "20261106T160000", calEnd: "20261106T200000",
+  place: "Casa Maro, C. Justo Sierra 2575, Arcos Vallarta, 44130 Guadalajara, Jal., México"
+};
+const TEXT = {
+  es:{
+    kicker:"Cena de bienvenida",
+    title:"Nos vemos en Casa Maro",
+    weekday:"Viernes", month:"de noviembre, 2026",
+    intro:"¡Hola familia! Queremos invitarlos a nuestra cena de bienvenida para pasar una tarde juntos, disfrutar una buena cena, brindar y convivir antes de todo lo que viene el fin de semana.",
+    whenLabel:"Cuándo", time:"4:00 a 8:00 PM",
+    timeNote:"El horario exacto está por confirmar. Aquí verán cualquier cambio.",
+    addCal:"Agregar al calendario",
+    whereLabel:"Dónde", openMap:"Abrir en Maps",
+    dressLabel:"Código de vestimenta", dress:"Casual elegante",
+    dressNote:"Algo arreglado y bonito, pero relajado y sin necesidad de ir demasiado formal.",
+    closing:"¡Qué mejor manera de comenzar el fin de semana que celebrando juntos! 🤍",
+    foot:"Guarden este enlace. Siempre tendrá la información más reciente.",
+    days:n=>n===1?"Falta 1 día":`Faltan ${n} días`, today:"¡Es hoy!", past:"¡Gracias por celebrar con nosotros!"
+  },
+  en:{
+    kicker:"Welcome dinner",
+    title:"See you at Casa Maro",
+    weekday:"Friday", month:"November, 2026",
+    intro:"Hi familia! We'd love to have you at our welcome dinner for an evening together: good food, a toast, and time to catch up before everything the weekend has in store.",
+    whenLabel:"When", time:"4:00 to 8:00 PM",
+    timeNote:"Exact time still being finalized. Any update will show up right here.",
+    addCal:"Add to calendar",
+    whereLabel:"Where", openMap:"Open in Maps",
+    dressLabel:"Dress code", dress:"Cocktail casual",
+    dressNote:"Dressed up and put together, but relaxed. No need to go too formal.",
+    closing:"What better way to start the weekend than celebrating together! 🤍",
+    foot:"Save this link. It will always have the latest details.",
+    days:n=>n===1?"1 day to go":`${n} days to go`, today:"It's today!", past:"Thank you for celebrating with us!"
+  }
+};
+/* =================================== */
+
+document.getElementById("mapLink").href =
+  "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(EVENT.place);
+
+function render(lang){
+  const t = TEXT[lang];
+  document.documentElement.lang = lang;
+  document.querySelectorAll("[data-t]").forEach(el=>{ el.textContent = t[el.dataset.t]; });
+  document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed", b.dataset.lang===lang));
+  document.getElementById("calLink").href =
+    "https://calendar.google.com/calendar/render?action=TEMPLATE" +
+    "&text=" + encodeURIComponent(lang==="es" ? "Cena de bienvenida · Angel & Celeste" : "Welcome dinner · Angel & Celeste") +
+    "&dates=" + EVENT.calStart + "/" + EVENT.calEnd + "&ctz=America/Mexico_City" +
+    "&location=" + encodeURIComponent(EVENT.place);
+  const now = new Date(), start = new Date(EVENT.start), end = new Date(EVENT.end);
+  const cd = document.getElementById("countdown");
+  if (now > end) cd.textContent = t.past;
+  else if (now >= new Date(start.getTime() - 16*3600e3)) cd.textContent = t.today;
+  else cd.textContent = t.days(Math.ceil((start - now) / 864e5));
+  try { localStorage.setItem("lang", lang); } catch(e) {}
+}
+
+let initial = "es";
+try {
+  const saved = localStorage.getItem("lang");
+  if (saved === "es" || saved === "en") initial = saved;
+  else if ((navigator.language||"").toLowerCase().startsWith("en")) initial = "en";
+} catch(e) {}
+document.querySelectorAll(".lang button").forEach(b=>b.addEventListener("click",()=>render(b.dataset.lang)));
+render(initial);
+</script>
+</body>
+</html>
