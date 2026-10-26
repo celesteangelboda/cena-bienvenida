@@ -64,7 +64,7 @@ body{margin:0;background:var(--bg);color:var(--ink);min-height:100%;
 .countdown{margin:20px 0 0;font-size:14px;opacity:.8}
 .glass{font-size:26px;display:block;margin-bottom:8px}
 
-.intro{font-size:18px;margin:28px 2px 14px;color:var(--ink)}
+.intro{font-size:18px;margin:28px 2px 26px;color:var(--ink)}
 .menu{margin:0 2px 26px;font-size:15px;color:var(--soft)}
 
 /* details */
@@ -111,7 +111,6 @@ body{margin:0;background:var(--bg);color:var(--ink);min-height:100%;
     <p class="countdown" id="countdown"></p>
   </section>
   <p class="intro" data-t="intro"></p>
-  <p class="menu" data-t="menu"></p>
 
   <section class="detail">
     <h2 data-t="whenLabel"></h2>
@@ -132,6 +131,12 @@ body{margin:0;background:var(--bg);color:var(--ink);min-height:100%;
   </section>
 
   <section class="detail">
+    <h2 data-t="menuLabel"></h2>
+    <p class="big" data-t="dish"></p>
+    <p data-t="menuNote"></p>
+  </section>
+
+  <section class="detail">
     <h2 data-t="dressLabel"></h2>
     <p class="big" data-t="dress"></p>
     <p data-t="dressNote"></p>
@@ -145,9 +150,9 @@ body{margin:0;background:var(--bg);color:var(--ink);min-height:100%;
 /* ============ EDIT HERE ============
    Change any text below, then ask Claude to republish to the same link. */
 const EVENT = {
-  start: "2026-11-06T16:00:00-06:00",   // Guadalajara time
+  start: "2026-11-06T17:30:00-06:00",   // Guadalajara time
   end:   "2026-11-06T20:00:00-06:00",
-  calStart: "20261106T160000", calEnd: "20261106T200000",
+  calStart: "20261106T173000", calEnd: "20261106T200000",
   place: "Casa Maro, C. Justo Sierra 2575, Arcos Vallarta, 44130 Guadalajara, Jal., México"
 };
 const TEXT = {
@@ -156,9 +161,10 @@ const TEXT = {
     title:"Nos vemos en Casa Maro",
     weekday:"Viernes", month:"de noviembre, 2026",
     intro:"¡Hola familia! Queremos invitarlos a nuestra cena de bienvenida para pasar una tarde juntos, disfrutar una buena cena, brindar y convivir antes de todo lo que viene el fin de semana.",
-    menu:"🍽️ La cena será con menú fijo, ya preparado para todos.",
-    whenLabel:"Cuándo", time:"4:00 a 8:00 PM",
-    timeNote:"La hora exacta aún está por confirmar, pero la cena será dentro de este horario. Cualquier cambio lo verán aquí.",
+    menuLabel:"Menú", dish:"Pollo con puré de papa rústico y salsa de tres chiles y queso",
+    menuNote:"Si prefieren otra opción, el menú del restaurante también estará disponible.",
+    whenLabel:"Cuándo", time:"5:30 a 8:00 PM",
+    timeNote:"✓ Horario confirmado",
     addCal:"Agregar al calendario",
     whereLabel:"Dónde", openMap:"Abrir en Maps",
     dressLabel:"Código de vestimenta", dress:"Casual elegante",
@@ -172,9 +178,10 @@ const TEXT = {
     title:"See you at Casa Maro",
     weekday:"Friday", month:"November, 2026",
     intro:"Hi familia! We'd love to have you at our welcome dinner for an evening together: good food, a toast, and time to catch up before everything the weekend has in store.",
-    menu:"🍽️ Dinner will be a set menu, already planned for everyone.",
-    whenLabel:"When", time:"4:00 to 8:00 PM",
-    timeNote:"Exact time is still being finalized, but dinner will take place within this time window. Any update will show up right here.",
+    menuLabel:"Menu", dish:"Chicken with rustic mashed potatoes and a three-chile cheese sauce",
+    menuNote:"If you'd prefer something else, the restaurant's full menu will also be available.",
+    whenLabel:"When", time:"5:30 to 8:00 PM",
+    timeNote:"✓ Confirmed time",
     addCal:"Add to calendar",
     whereLabel:"Where", openMap:"Open in Maps",
     dressLabel:"Dress code", dress:"Cocktail casual",
